@@ -25,9 +25,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes\primordialmachine\math\geometry\circle.hpp" />
+    <ClInclude Include="includes\primordialmachine\math\geometry\common.hpp" />
     <ClInclude Include="includes\primordialmachine\math\geometry\include.hpp" />
     <ClInclude Include="includes\primordialmachine\math\geometry\lerp.hpp" />
     <ClInclude Include="includes\primordialmachine\math\geometry\line.hpp" />
+    <ClInclude Include="includes\primordialmachine\math\geometry\ray.hpp" />
+    <ClInclude Include="includes\primordialmachine\math\geometry\sphere.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sources\primordialmachine\math\geometry\include.cpp" />
@@ -91,26 +94,26 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)products\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</OutDir>
-    <IntDir>$(SolutionDir)intermediates\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</IntDir>
+    <OutDir>$(BuildDir)products\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</OutDir>
+    <IntDir>$(BuildDir)intermediates\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</IntDir>
     <TargetName>$(PackageName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)products\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</OutDir>
-    <IntDir>$(SolutionDir)intermediates\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</IntDir>
+    <OutDir>$(BuildDir)products\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</OutDir>
+    <IntDir>$(BuildDir)intermediates\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</IntDir>
     <TargetName>$(PackageName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)products\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</OutDir>
-    <IntDir>$(SolutionDir)intermediates\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</IntDir>
+    <OutDir>$(BuildDir)products\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</OutDir>
+    <IntDir>$(BuildDir)intermediates\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</IntDir>
     <TargetName>$(PackageName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IntDir>$(SolutionDir)intermediates\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</IntDir>
-    <OutDir>$(SolutionDir)products\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</OutDir>
+    <IntDir>$(BuildDir)intermediates\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</IntDir>
+    <OutDir>$(BuildDir)products\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</OutDir>
     <TargetName>$(PackageName)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -146,8 +149,8 @@
       <Command>xcopy $(ProjectDir)includes $(PackageDir)includes\ /S /E /Y
 xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
       <Message>Create package.</Message>
-      <Outputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp</Outputs>
-      <Inputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp</Inputs>
+      <Outputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageDir)includes\primordialmachine\math\geometry\common.hpp</Outputs>
+      <Inputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageDir)includes\primordialmachine\math\geometry\common.hpp</Inputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -184,8 +187,8 @@ xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
       <Command>xcopy $(ProjectDir)includes $(PackageDir)includes\ /S /E /Y
 xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
       <Message>Create package.</Message>
-      <Inputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp</Inputs>
-      <Outputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp</Outputs>
+      <Inputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageDir)includes\primordialmachine\math\geometry\common.hpp</Inputs>
+      <Outputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageDir)includes\primordialmachine\math\geometry\common.hpp</Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -229,8 +232,8 @@ xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
       <Command>xcopy $(ProjectDir)includes $(PackageDir)includes\ /S /E /Y
 xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
       <Message>Create package.</Message>
-      <Inputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp</Inputs>
-      <Outputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp</Outputs>
+      <Inputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageDir)includes\primordialmachine\math\geometry\common.hpp</Inputs>
+      <Outputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageDir)includes\primordialmachine\math\geometry\common.hpp</Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -274,8 +277,8 @@ xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
       <Command>xcopy $(ProjectDir)includes $(PackageDir)includes\ /S /E /Y
 xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
       <Message>Create package.</Message>
-      <Inputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp</Inputs>
-      <Outputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp</Outputs>
+      <Inputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageDir)includes\primordialmachine\math\geometry\common.hpp</Inputs>
+      <Outputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageDir)includes\primordialmachine\math\geometry\common.hpp</Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

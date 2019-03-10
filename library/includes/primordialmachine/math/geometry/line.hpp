@@ -29,61 +29,74 @@
 
 namespace primordialmachine {
 
+template<typename SCALAR, size_t NUMBER_OF_ELEMENTS, typename ENABLED = void>
+struct line;
+
+#pragma push_macro("ENABLE_STRUCT_IF")
+#define ENABLE_STRUCT_IF() enable_if_t<(NUMBER_OF_ELEMENTS >= 2)>
+
 template<typename SCALAR, size_t NUMBER_OF_ELEMENTS>
-struct line
+struct line<SCALAR, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>
 {
-public:
-  using point_type = point<point_traits<SCALAR, NUMBER_OF_ELEMENTS>>;
-  using vector_type = vector<vector_traits<SCALAR, NUMBER_OF_ELEMENTS>>;
+  using scalar_type = SCALAR;
 
-private:
-  point_type m_a;
-  point_type m_b;
+  using point_type = point<point_traits<scalar_type, NUMBER_OF_ELEMENTS>>;
 
-public:
+  using vector_type = vector<vector_traits<scalar_type, NUMBER_OF_ELEMENTS>>;
+
+  // \f$a = \left(0, 0, \ldots\right)\f$, \f$b = \left(0, 1, \ldots\right)\f$
   line();
 
   line(const point_type& a, const point_type& b);
 
-  const point_type& a() const;
+  constexpr const point_type& a() const;
 
-  const point_type& b() const;
+  constexpr const point_type& b() const;
 
-  point_type eval(SCALAR t) const;
+  point_type eval(scalar_type t) const;
+
+private:
+  point_type m_a;
+
+  point_type m_b;
 
 }; // struct line
 
 template<typename SCALAR, size_t NUMBER_OF_ELEMENTS>
-line<SCALAR, NUMBER_OF_ELEMENTS>::line()
+line<SCALAR, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::line()
   : m_a()
   , m_b()
 {}
 
 template<typename SCALAR, size_t NUMBER_OF_ELEMENTS>
-line<SCALAR, NUMBER_OF_ELEMENTS>::line(const point_type& a, const point_type& b)
+line<SCALAR, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::line(const point_type& a,
+                                                           const point_type& b)
   : m_a(a)
   , m_b(b)
 {}
 
 template<typename SCALAR, size_t NUMBER_OF_ELEMENTS>
-const typename line<SCALAR, NUMBER_OF_ELEMENTS>::point_type&
-line<SCALAR, NUMBER_OF_ELEMENTS>::a() const
+constexpr const typename line<SCALAR, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::point_type&
+line<SCALAR, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::a() const
 {
   return m_a;
 }
 
 template<typename SCALAR, size_t NUMBER_OF_ELEMENTS>
-const typename line<SCALAR, NUMBER_OF_ELEMENTS>::point_type&
-line<SCALAR, NUMBER_OF_ELEMENTS>::b() const
+constexpr const typename line<SCALAR, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::point_type&
+line<SCALAR, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::b() const
 {
   return m_b;
 }
 
 template<typename SCALAR, size_t NUMBER_OF_ELEMENTS>
-typename line<SCALAR, NUMBER_OF_ELEMENTS>::point_type
-line<SCALAR, NUMBER_OF_ELEMENTS>::eval(SCALAR t) const
+typename line<SCALAR, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::point_type
+line<SCALAR, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::eval(scalar_type t) const
 {
   return lerp(m_a, m_b, t);
 }
+
+#undef ENABLE_STRUCT_IF
+#pragma pop_macro("ENABLE_STRUCT_IF")
 
 } // namespace primordialmachine

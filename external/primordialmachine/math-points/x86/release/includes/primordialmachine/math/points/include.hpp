@@ -25,5 +25,7 @@
 
 #pragma once
 
+#include "primordialmachine/math/points/equal_to_point_point.hpp"
+#include "primordialmachine/math/points/not_equal_to_point_point.hpp"
 #include "primordialmachine/math/points/point.hpp"
 #include "primordialmachine/math/points/point_default_implementation.hpp"

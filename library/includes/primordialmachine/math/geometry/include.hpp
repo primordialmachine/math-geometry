@@ -27,3 +27,5 @@
 
 #include "primordialmachine/math/geometry/circle.hpp"
 #include "primordialmachine/math/geometry/line.hpp"
+#include "primordialmachine/math/geometry/ray.hpp"
+#include "primordialmachine/math/geometry/sphere.hpp"

@@ -26,6 +26,15 @@
     <ClInclude Include="includes\primordialmachine\math\geometry\lerp.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="includes\primordialmachine\math\geometry\common.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\primordialmachine\math\geometry\sphere.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\primordialmachine\math\geometry\ray.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sources\primordialmachine\math\geometry\include.cpp">

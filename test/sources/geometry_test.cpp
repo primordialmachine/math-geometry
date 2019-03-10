@@ -36,14 +36,43 @@ using scalar_type = float;
 using point_type = point<point_traits<scalar_type, _number_of_elements()>>;
 using vector_type = vector<vector_traits<scalar_type, _number_of_elements()>>;
 
+TEST(math_geometry_tests, axis_vector_test)
+{
+  primordialmachine::unit_vector_functor<vector_type> f;
+  vector_type v;
+
+  v = f(0);
+  ASSERT_TRUE(vector_type(1.f, 0.f, 0.f) == v);
+  
+  v = f(1);
+  ASSERT_TRUE(vector_type(0.f, 1.f, 0.f) == v);
+  
+  v = f(2);
+  ASSERT_TRUE(vector_type(0.f, 0.f, 1.f) == v);
+}
+
 TEST(math_geometry_tests, line_constructor)
 {
   using line_type = line<scalar_type, _number_of_elements()>;
   auto l = line_type();
+  ASSERT_TRUE(point_type(0.f, 0.f, -.5f) == l.a());
+  ASSERT_TRUE(point_type(0.f, 0.f, +.5f) == l.b());
 }
 
 TEST(math_geometry_tests, circle_constructor)
 {
   using circle_type = circle<scalar_type>;
   auto c = circle_type();
+}
+
+TEST(math_geometry_tests, ray_constructor)
+{
+  using ray_type = ray<scalar_type, 3>;
+  auto r = ray_type();
+}
+
+TEST(math_geometry_tests, sphere_constructor)
+{
+  using sphere_type = sphere<scalar_type, 3>;
+  auto s = sphere_type();
 }

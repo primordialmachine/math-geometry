@@ -76,6 +76,4 @@ struct is_degenerate<T, enable_if_t<is_vector_v<T>>>
   static constexpr bool value = T::traits_type::is_degenerate;
 }; // struct is_degenerate
 
-/*===============================================================================================*/
-
 } // namespace primordialmachine
