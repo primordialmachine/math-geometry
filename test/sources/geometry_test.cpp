@@ -43,10 +43,10 @@ TEST(math_geometry_tests, axis_vector_test)
 
   v = f(0);
   ASSERT_TRUE(vector_type(1.f, 0.f, 0.f) == v);
-  
+
   v = f(1);
   ASSERT_TRUE(vector_type(0.f, 1.f, 0.f) == v);
-  
+
   v = f(2);
   ASSERT_TRUE(vector_type(0.f, 0.f, 1.f) == v);
 }
@@ -55,8 +55,8 @@ TEST(math_geometry_tests, line_constructor)
 {
   using line_type = line<scalar_type, _number_of_elements()>;
   auto l = line_type();
-  ASSERT_TRUE(point_type(0.f, 0.f, -.5f) == l.a());
-  ASSERT_TRUE(point_type(0.f, 0.f, +.5f) == l.b());
+  ASSERT_TRUE(point_type(-0.5f, 0.f, 0.f) == l.a());
+  ASSERT_TRUE(point_type(+0.5f, 0.f, 0.f) == l.b());
 }
 
 TEST(math_geometry_tests, circle_constructor)
@@ -75,4 +75,28 @@ TEST(math_geometry_tests, sphere_constructor)
 {
   using sphere_type = sphere<scalar_type, 3>;
   auto s = sphere_type();
+}
+
+
+TEST(math_geometry_tests, point_to_vector)
+{
+  auto p = point_type();
+  auto v = primordialmachine::to<vector_type>(p);
+  auto q = primordialmachine::to<point_type>(v);
+}
+
+TEST(math_geometry_tests, vector_to_point)
+{
+  auto v = vector_type();
+  auto p = primordialmachine::to<point_type>(v);
+  auto w = primordialmachine::to<vector_type>(p);
+}
+
+TEST(math_geometry_tests, make_point)
+{
+  using F = make_point<point_type>;
+  auto f = F();
+  auto p = F()([](size_t i) { return i == 0; },
+               one_functor<float>(),
+               zero_functor<float>());
 }

@@ -31,6 +31,8 @@
     <ClInclude Include="includes\primordialmachine\math\geometry\line.hpp" />
     <ClInclude Include="includes\primordialmachine\math\geometry\ray.hpp" />
     <ClInclude Include="includes\primordialmachine\math\geometry\sphere.hpp" />
+    <ClInclude Include="includes\primordialmachine\math\geometry\to.hpp" />
+    <ClInclude Include="includes\primordialmachine\math\geometry\two.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sources\primordialmachine\math\geometry\include.cpp" />

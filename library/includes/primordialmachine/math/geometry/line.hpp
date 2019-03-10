@@ -26,6 +26,31 @@
 #pragma once
 
 #include "primordialmachine/math/geometry/lerp.hpp"
+#include "primordialmachine/math/geometry/to.hpp"
+
+namespace primordialmachine {
+
+template<typename P, typename ENABLED = void>
+struct make_point;
+
+template<typename P>
+struct make_point<P, enable_if_t<is_point_v<P>>>
+{
+  template<typename C, typename F, typename G>
+  auto operator()(C c, F f, G g) const
+  {
+    return implementation(
+      c, f, g, make_index_sequence<number_of_elements_v<P>>{});
+  }
+  template<typename C, typename F, typename G, size_t... I>
+  auto implementation(C c, F f, G g, index_sequence<I...>) const
+  {
+    auto x = [c, f, g](size_t i) { return c(i) ? f() : g(); };
+    return P{ (x(I))... };
+  }
+};
+
+} // namespace primordialmachine
 
 namespace primordialmachine {
 
@@ -64,8 +89,16 @@ private:
 
 template<typename SCALAR, size_t NUMBER_OF_ELEMENTS>
 line<SCALAR, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::line()
-  : m_a()
-  , m_b()
+  : m_a(to<point_type>(
+      to<vector_type>(make_point<point_type>()([](size_t i) { return i == 0; },
+                                               one_functor<SCALAR>(),
+                                               zero_functor<SCALAR>())) /
+      -two<SCALAR>()))
+  , m_b(to<point_type>(
+      to<vector_type>(make_point<point_type>()([](size_t i) { return i == 0; },
+                                               one_functor<SCALAR>(),
+                                               zero_functor<SCALAR>())) /
+      +two<SCALAR>()))
 {}
 
 template<typename SCALAR, size_t NUMBER_OF_ELEMENTS>
@@ -76,15 +109,17 @@ line<SCALAR, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::line(const point_type& a,
 {}
 
 template<typename SCALAR, size_t NUMBER_OF_ELEMENTS>
-constexpr const typename line<SCALAR, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::point_type&
-line<SCALAR, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::a() const
+constexpr const typename line<SCALAR, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::
+  point_type&
+  line<SCALAR, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::a() const
 {
   return m_a;
 }
 
 template<typename SCALAR, size_t NUMBER_OF_ELEMENTS>
-constexpr const typename line<SCALAR, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::point_type&
-line<SCALAR, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::b() const
+constexpr const typename line<SCALAR, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::
+  point_type&
+  line<SCALAR, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::b() const
 {
   return m_b;
 }

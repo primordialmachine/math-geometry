@@ -25,6 +25,7 @@
 
 #pragma once
 
+#include "primordialmachine/math/geometry/two.hpp"
 #include "primordialmachine/math/points/include.hpp"
 #include "primordialmachine/math/trigonometry/include.hpp"
 #include "primordialmachine/math/vectors/include.hpp"
@@ -37,7 +38,8 @@ struct unit_vector_functor;
 template<typename VECTOR>
 struct unit_vector_functor<VECTOR, enable_if_t<is_vector_v<VECTOR>>>
 {
-  static constexpr const size_t number_of_elements = number_of_elements_v<VECTOR>;
+  static constexpr const size_t number_of_elements =
+    number_of_elements_v<VECTOR>;
   using scalar_type = element_type_t<VECTOR>;
   using vector_type = VECTOR;
   auto operator()(size_t i) const
@@ -50,41 +52,9 @@ private:
   template<size_t... N>
   auto impl(size_t i, index_sequence<N...>) const
   {
-    return vector_type((N == i ? one<scalar_type>() : zero<scalar_type>()) ...);
+    return vector_type((N == i ? one<scalar_type>() : zero<scalar_type>())...);
   }
 }; // struct unit_vector_functor
-
-} // namespace primordialmachine
-
-namespace primordialmachine {
-
-template<typename T, typename E = void>
-struct two_functor;
-
-template<typename T>
-auto
-two() noexcept(noexcept(two_functor<T>()())) -> decltype(two_functor<T>()())
-{
-  return two_functor<T>()();
-}
-
-template<>
-struct two_functor<float, void>
-{
-  float operator()() const noexcept { return 2.0F; }
-}; // struct two_functor
-
-template<>
-struct two_functor<double, void>
-{
-  double operator()() const noexcept { return 2.0; }
-}; // struct two_functor
-
-template<>
-struct two_functor<long double, void>
-{
-  long double operator()() const noexcept { return 2.0L; }
-}; // struct two_functor
 
 } // namespace primordialmachine
 
