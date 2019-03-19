@@ -1,0 +1,16 @@
+[
+  { name : 'arithmetic-functors', version : null },
+  { name : 'byte-orders', version : null },
+  { name : 'errors', version : null },
+  { name : 'functors', version : null },
+  { name : 'math-colors', version : null },
+  { name : 'math-matrices', version : null },
+  { name : 'math-non-scalars', version : null },
+  { name : 'math-points', version : null },
+  { name : 'math-scalars', version : null },
+  { name : 'math-trigonometry', version : null },
+  { name : 'math-vectors', version : null },
+  { name : 'one-zero-functors', version : null },
+  { name : 'relational-functors', version : null },
+  { name : 'trigonometric-functors', version : null }
+]

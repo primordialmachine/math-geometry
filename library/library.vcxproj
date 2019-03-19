@@ -78,151 +78,88 @@
   <ImportGroup Label="Shared">
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="package.props" />
+    <Import Project="..\commons.props" />
+    <Import Project="..\commons-debug.props" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="package.props" />
+    <Import Project="..\commons.props" />
+    <Import Project="..\commons-release.props" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="package.props" />
+    <Import Project="..\commons.props" />
+    <Import Project="..\commons-debug.props" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="package.props" />
+    <Import Project="..\commons.props" />
+    <Import Project="..\commons-release.props" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(BuildDir)products\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</OutDir>
-    <IntDir>$(BuildDir)intermediates\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</IntDir>
     <TargetName>$(PackageName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(BuildDir)products\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</OutDir>
-    <IntDir>$(BuildDir)intermediates\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</IntDir>
     <TargetName>$(PackageName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(BuildDir)products\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</OutDir>
-    <IntDir>$(BuildDir)intermediates\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</IntDir>
     <TargetName>$(PackageName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IntDir>$(BuildDir)intermediates\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</IntDir>
-    <OutDir>$(BuildDir)products\$(ProjectName)\$(PlatformTarget.toLower())\$(Configuration.toLower())\</OutDir>
     <TargetName>$(PackageName)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>false</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <OpenMPSupport>false</OpenMPSupport>
-      <EnableModules>false</EnableModules>
       <AdditionalIncludeDirectories>$(ProjectDir)includes;$(SolutionDir)external\primordialmachine\arithmetic-functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\errors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\relational-functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-indices\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-matrices\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-non-scalars\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-points\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-scalars\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-trigonometry\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-vectors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\one-zero-functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\trigonometric-functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes</AdditionalIncludeDirectories>
-      <StringPooling>false</StringPooling>
-      <ControlFlowGuard>Guard</ControlFlowGuard>
-      <FunctionLevelLinking>false</FunctionLevelLinking>
-      <EnableParallelCodeGeneration>false</EnableParallelCodeGeneration>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <CompileAsManaged>false</CompileAsManaged>
-      <CompileAsWinRT>false</CompileAsWinRT>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <CreateHotpatchableImage>false</CreateHotpatchableImage>
-      <UseUnicodeForAssemblerListing>true</UseUnicodeForAssemblerListing>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <CustomBuildStep>
-      <Command>xcopy $(ProjectDir)includes $(PackageDir)includes\ /S /E /Y
-xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
+      <Command>xcopy $(PackageSourceDir)includes $(PackageTargetDir)includes\ /S /E /Y
+xcopy $(OutDir)*.lib $(PackageTargetDir)libraries\ /S /E /Y</Command>
       <Message>Create package.</Message>
-      <Outputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageDir)includes\primordialmachine\math\geometry\common.hpp</Outputs>
-      <Inputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageDir)includes\primordialmachine\math\geometry\common.hpp</Inputs>
+      <Outputs>$(PackageTargetDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\common.hpp</Outputs>
+      <Inputs>$(PackageSourceDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\common.hpp</Inputs>
     </CustomBuildStep>
+    <Lib>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>false</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <OpenMPSupport>false</OpenMPSupport>
-      <EnableModules>false</EnableModules>
       <AdditionalIncludeDirectories>$(ProjectDir)includes;$(SolutionDir)external\primordialmachine\arithmetic-functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\errors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\relational-functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-indices\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-matrices\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-non-scalars\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-points\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-scalars\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-trigonometry\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-vectors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\one-zero-functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\trigonometric-functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes</AdditionalIncludeDirectories>
       <OmitFramePointers>false</OmitFramePointers>
-      <StringPooling>false</StringPooling>
-      <ControlFlowGuard>Guard</ControlFlowGuard>
-      <FunctionLevelLinking>false</FunctionLevelLinking>
-      <EnableParallelCodeGeneration>false</EnableParallelCodeGeneration>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <CompileAsManaged>false</CompileAsManaged>
-      <CompileAsWinRT>false</CompileAsWinRT>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <CreateHotpatchableImage>false</CreateHotpatchableImage>
-      <UseUnicodeForAssemblerListing>true</UseUnicodeForAssemblerListing>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <CustomBuildStep>
-      <Command>xcopy $(ProjectDir)includes $(PackageDir)includes\ /S /E /Y
-xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
+      <Command>xcopy $(PackageSourceDir)includes $(PackageTargetDir)includes\ /S /E /Y
+xcopy $(OutDir)*.lib $(PackageTargetDir)libraries\ /S /E /Y</Command>
       <Message>Create package.</Message>
-      <Inputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageDir)includes\primordialmachine\math\geometry\common.hpp</Inputs>
-      <Outputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageDir)includes\primordialmachine\math\geometry\common.hpp</Outputs>
+      <Inputs>$(PackageSourceDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\common.hpp</Inputs>
+      <Outputs>$(PackageTargetDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\common.hpp</Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>false</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>false</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <OpenMPSupport>false</OpenMPSupport>
-      <EnableModules>false</EnableModules>
       <AdditionalIncludeDirectories>$(ProjectDir)includes;$(SolutionDir)external\primordialmachine\arithmetic-functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\errors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\relational-functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-indices\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-matrices\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-non-scalars\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-points\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-scalars\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-trigonometry\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-vectors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\one-zero-functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\trigonometric-functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes</AdditionalIncludeDirectories>
-      <OmitFramePointers>true</OmitFramePointers>
-      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <StringPooling>true</StringPooling>
-      <BufferSecurityCheck>false</BufferSecurityCheck>
-      <ControlFlowGuard>false</ControlFlowGuard>
-      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
-      <CompileAsManaged>false</CompileAsManaged>
-      <CompileAsWinRT>false</CompileAsWinRT>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <CreateHotpatchableImage>false</CreateHotpatchableImage>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <UseUnicodeForAssemblerListing>true</UseUnicodeForAssemblerListing>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -231,43 +168,20 @@ xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <CustomBuildStep>
-      <Command>xcopy $(ProjectDir)includes $(PackageDir)includes\ /S /E /Y
-xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
+      <Command>xcopy $(PackageSourceDir)includes $(PackageTargetDir)includes\ /S /E /Y
+xcopy $(OutDir)*.lib $(PackageTargetDir)libraries\ /S /E /Y</Command>
       <Message>Create package.</Message>
-      <Inputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageDir)includes\primordialmachine\math\geometry\common.hpp</Inputs>
-      <Outputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageDir)includes\primordialmachine\math\geometry\common.hpp</Outputs>
+      <Inputs>$(PackageSourceDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\common.hpp</Inputs>
+      <Outputs>$(PackageTargetDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\common.hpp</Outputs>
     </CustomBuildStep>
+    <Lib>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>false</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>false</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <OpenMPSupport>false</OpenMPSupport>
-      <EnableModules>false</EnableModules>
       <AdditionalIncludeDirectories>$(ProjectDir)includes;$(SolutionDir)external\primordialmachine\arithmetic-functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\errors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\relational-functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-indices\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-matrices\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-non-scalars\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-points\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-scalars\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-trigonometry\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\math-vectors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\one-zero-functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes;$(SolutionDir)external\primordialmachine\trigonometric-functors\$(PlatformTarget.toLower())\$(Configuration.toLower())\includes</AdditionalIncludeDirectories>
-      <OmitFramePointers>true</OmitFramePointers>
-      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <StringPooling>true</StringPooling>
-      <BufferSecurityCheck>false</BufferSecurityCheck>
-      <ControlFlowGuard>false</ControlFlowGuard>
-      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
-      <CompileAsManaged>false</CompileAsManaged>
-      <CompileAsWinRT>false</CompileAsWinRT>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <CreateHotpatchableImage>false</CreateHotpatchableImage>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <UseUnicodeForAssemblerListing>true</UseUnicodeForAssemblerListing>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -276,11 +190,11 @@ xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <CustomBuildStep>
-      <Command>xcopy $(ProjectDir)includes $(PackageDir)includes\ /S /E /Y
-xcopy $(OutDir)*.lib $(PackageDir)libraries\ /S /E /Y</Command>
+      <Command>xcopy $(PackageSourceDir)includes $(PackageTargetDir)includes\ /S /E /Y
+xcopy $(OutDir)*.lib $(PackageTargetDir)libraries\ /S /E /Y</Command>
       <Message>Create package.</Message>
-      <Inputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageDir)includes\primordialmachine\math\geometry\common.hpp</Inputs>
-      <Outputs>$(PackageDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageDir)includes\primordialmachine\math\geometry\common.hpp</Outputs>
+      <Inputs>$(PackageSourceDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageSourceDir)includes\primordialmachine\math\geometry\common.hpp</Inputs>
+      <Outputs>$(PackageTargetDir)includes\primordialmachine\math\geometry\circle.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\include.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\lerp.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\line.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\sphere.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\ray.hpp;$(PackageTargetDir)includes\primordialmachine\math\geometry\common.hpp</Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

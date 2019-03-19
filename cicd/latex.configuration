@@ -11,7 +11,7 @@
 
 "CanonicalPackageTypeName": "library",
 "PackageTypeName" : "Library",
-"PackageVersion" : "0.2",
+"PackageVersion" : "0.4",
 
 "RepositoryUrl" : "https://github.com/primordialmachine/math-geometry",
 "Open" : "{",
