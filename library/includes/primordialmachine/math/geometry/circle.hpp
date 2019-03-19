@@ -74,7 +74,7 @@ circle<ELEMENT>::eval(scalar_type t) const
   // The constants \f$2\pi\f$.
   static const auto TWO_PI =
     angle<scalar_type, angle_unit_radians>(two<scalar_type>() * pi<scalar_type>());
-  return point_type(r * cos(TWO_PI * t), r * sin(TWO_PI * t));
+  return point_type(m_r * cos(TWO_PI * t), m_r * sin(TWO_PI * t));
 }
 
 } // namespace primordialmachine

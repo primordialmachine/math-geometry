@@ -53,8 +53,8 @@ struct sphere<ELEMENT, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>
   constexpr const point_type& c() const noexcept;
   constexpr point_type& c() noexcept;
 
-  constexpr const vector_type& d() const noexcept;
-  constexpr vector_type& d() noexcept;
+  constexpr const scalar_type& r() const noexcept;
+  constexpr scalar_type& r() noexcept;
 
 private:
   point_type m_c;
@@ -95,18 +95,18 @@ sphere<ELEMENT, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::c() noexcept
 template<typename ELEMENT, size_t NUMBER_OF_ELEMENTS>
 constexpr const typename sphere<ELEMENT,
                                 NUMBER_OF_ELEMENTS,
-                                ENABLE_STRUCT_IF()>::vector_type&
-sphere<ELEMENT, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::d() const noexcept
+                                ENABLE_STRUCT_IF()>::scalar_type&
+sphere<ELEMENT, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::r() const noexcept
 {
-  return m_d;
+  return m_r;
 }
 
 template<typename ELEMENT, size_t NUMBER_OF_ELEMENTS>
 constexpr
-  typename sphere<ELEMENT, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::vector_type&
-  sphere<ELEMENT, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::d() noexcept
+  typename sphere<ELEMENT, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::scalar_type&
+  sphere<ELEMENT, NUMBER_OF_ELEMENTS, ENABLE_STRUCT_IF()>::r() noexcept
 {
-  return m_d;
+  return m_r;
 }
 
 #undef ENABLE_STRUCT_IF
