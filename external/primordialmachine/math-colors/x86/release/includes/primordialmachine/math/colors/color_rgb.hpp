@@ -133,7 +133,8 @@ public:
     };
     a.m_data[0] = f(a.m_data[0], b.m_data[0]);
     a.m_data[1] = f(a.m_data[1], b.m_data[1]);
-    a.m_data[2] = f(a.m_data[2], b.m_data[2]), return a;
+    a.m_data[2] = f(a.m_data[2], b.m_data[2]);
+    return a;
   }
 
   static this_type binary_star(const component_type& a, const this_type& b)
